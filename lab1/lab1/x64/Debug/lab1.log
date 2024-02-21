@@ -1,6 +1,2 @@
 ﻿  main.c
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(90,62): warning C4474: "printf" : для строки формата передано слишком много аргументов
-  C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(90,62):
-  заполнители и их параметры ожидают переменное число аргументов в количестве 1, но было предоставлено 2
-  
   lab1.vcxproj -> C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\x64\Debug\lab1.exe

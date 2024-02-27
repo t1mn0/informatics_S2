@@ -1,13 +1,2 @@
-﻿  list.c
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(98,14): warning C4013: isdigit: нет определения; предполагается "extern" с возвратом типа "int"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(121,20): warning C4477: "printf": в строке форматирования "%s" требуется аргумент типа "char *", но вариативный аргумент "1" имеет тип "void *"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(200,68): warning C4090: функция: разные квалификаторы "const"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(200,54): warning C4113: "int (__cdecl *)(void *,void *)" отличается в списках параметров от "_CoreCrtNonSecureSearchSortCompareFunction"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(203,68): warning C4090: функция: разные квалификаторы "const"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(203,54): warning C4113: "int (__cdecl *)(void *,void *)" отличается в списках параметров от "_CoreCrtNonSecureSearchSortCompareFunction"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(217,68): warning C4090: функция: разные квалификаторы "const"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(217,54): warning C4113: "int (__cdecl *)(void *,void *)" отличается в списках параметров от "_CoreCrtNonSecureSearchSortCompareFunction"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(220,68): warning C4090: функция: разные квалификаторы "const"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(220,54): warning C4113: "int (__cdecl *)(void *,void *)" отличается в списках параметров от "_CoreCrtNonSecureSearchSortCompareFunction"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(265): warning C4715: sort: значение возвращается не при всех путях выполнения
+﻿  main.c
   lab1.vcxproj -> C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\x64\Debug\lab1.exe

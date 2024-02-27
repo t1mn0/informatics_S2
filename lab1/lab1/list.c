@@ -7,10 +7,26 @@
 #define RED     "\033[1;31m"
 
 typedef struct {
-    void** list;
+    void** array;
     int size;
     int capacity;
 } dynamic_array;
+
+typedef struct {
+    void (*freeList)(dynamic_array*, int);
+    dynamic_array* (*init)();
+    void (*resize)(dynamic_array*);
+    void (*addString)(dynamic_array*, char*);
+    void (*addDouble)(dynamic_array*, double);
+    void (*printList)(dynamic_array*);
+
+    void (*concatenation)(dynamic_array*, dynamic_array*);
+    void (*mapString)(char* (*func)(char*), dynamic_array*);
+    void (*mapDouble)(double (*func)(double), dynamic_array*);
+    dynamic_array* (*where)(int (*func)(char*), dynamic_array*);
+    dynamic_array* (*sort)(dynamic_array*, int, int);
+} list;
+
 
 void freeList(dynamic_array* darr, int errorCode) {
     switch (errorCode) {
@@ -37,12 +53,11 @@ void freeList(dynamic_array* darr, int errorCode) {
     default:
         break;
     }
-    free(darr->list);
+    free(darr->array);
     free(darr);
 }
 
-
-dynamic_array* newList() {
+dynamic_array* init() {
     dynamic_array* darr = (dynamic_array*)malloc(sizeof(dynamic_array));
     if (darr == NULL) {
         freeList(darr, 1);
@@ -51,8 +66,8 @@ dynamic_array* newList() {
     darr->size = 0;
     darr->capacity = 5;
 
-    darr->list = (void**)malloc(darr->capacity * sizeof(void*));
-    if (darr->list == NULL) {
+    darr->array = (void**)malloc(darr->capacity * sizeof(void*));
+    if (darr->array == NULL) {
         freeList(darr, 1);
     }
 
@@ -61,8 +76,8 @@ dynamic_array* newList() {
 
 void resize(dynamic_array* darr) {
     darr->capacity += 5;
-    darr->list = (void**)realloc(darr->list, darr->capacity * sizeof(void*));
-    if (darr->list == NULL) {
+    darr->array = (void**)realloc(darr->array, darr->capacity * sizeof(void*));
+    if (darr->array == NULL) {
         freeList(darr, 1);
     }
 }
@@ -71,8 +86,8 @@ void addString(dynamic_array* darr, char* str) {
     if (darr->size == darr->capacity) {
         resize(darr);
     }
-    darr->list[darr->size] = _strdup(str);
-    if (darr->list[darr->size] == NULL) {
+    darr->array[darr->size] = _strdup(str);
+    if (darr->array[darr->size] == NULL) {
         freeList(darr, 1);
     }
     darr->size++;
@@ -89,7 +104,7 @@ void addDouble(dynamic_array* darr, double n) {
     }
 
     snprintf(n_pointer, sizeof n_pointer, "%lf", n);
-    darr->list[darr->size] = n_pointer;
+    darr->array[darr->size] = n_pointer;
     darr->size++;
 }
 
@@ -117,8 +132,8 @@ void printList(dynamic_array* darr) {
     }
 
     for (int i = 0; i < darr->size; i++) {
-        if (darr->list[i] != NULL) {
-            printf("%s\n", darr->list[i]);
+        if (darr->array[i] != NULL) {
+            printf("%s\n", darr->array[i]);
         }
         else {
             freeList(darr, 4);
@@ -130,38 +145,38 @@ void printList(dynamic_array* darr) {
 
 void concatenation(dynamic_array* darr1, dynamic_array* darr2) {
     for (int i = 0; i < darr2->size; i++) {
-        addString(darr1, darr2->list[i]);
+        addString(darr1, darr2->array[i]);
     }
 }
 
 void mapString(char* (*func)(char*), dynamic_array* darr) {
     for (int i = 0; i < darr->size; i++) {
-        if (isString(darr->list[i]) == 1) {
-            darr->list[i] = func(darr->list[i]);
+        if (isString(darr->array[i]) == 1) {
+            darr->array[i] = func(darr->array[i]);
         }
     }
 }
 
 void mapDouble(double (*func)(double), dynamic_array* darr) {
     for (int i = 0; i < darr->size; i++) {
-        if (isString(darr->list[i]) == 0) {
+        if (isString(darr->array[i]) == 0) {
             char* n_pointer = (char*)malloc(sizeof(char*));
 
             if (n_pointer == NULL) {
                 freeList(darr, 1);
             }
 
-            snprintf(n_pointer, sizeof n_pointer, "%lf", func(atof(darr->list[i])));
-            darr->list[i] = n_pointer;
+            snprintf(n_pointer, sizeof n_pointer, "%lf", func(atof(darr->array[i])));
+            darr->array[i] = n_pointer;
         }
     }
 }
 
 dynamic_array* where(int (*func)(char*), dynamic_array* darr) {
-    dynamic_array* darrWhere = newList();
+    dynamic_array* darrWhere = init();
     for (int i = 0; i < darr->size; i++) {
-        if (func(darr->list[i]) == 1) {
-            addString(darrWhere, darr->list[i]);
+        if (func(darr->array[i]) == 1) {
+            addString(darrWhere, darr->array[i]);
         }
     }
     return darrWhere;
@@ -197,10 +212,10 @@ int compareDouble0(void* a, void* b) {
 
 void sortDouble(dynamic_array* darr, int param) {
     if (param == 1) {
-        qsort(darr->list, darr->size, sizeof(char*), compareDouble1);
+        qsort(darr->array, darr->size, sizeof(char*), compareDouble1);
     }
     else {
-        qsort(darr->list, darr->size, sizeof(char*), compareDouble0);
+        qsort(darr->array, darr->size, sizeof(char*), compareDouble0);
     }
 }
 
@@ -214,10 +229,10 @@ int compareString0(void* a, void* b) {
 
 void sortString(dynamic_array* darr, int param) {
     if (param == 1) {
-        qsort(darr->list, darr->size, sizeof(char*), compareString1);
+        qsort(darr->array, darr->size, sizeof(char*), compareString1);
     }
     else {
-        qsort(darr->list, darr->size, sizeof(char*), compareString0);
+        qsort(darr->array, darr->size, sizeof(char*), compareString0);
     }
 }
 
@@ -263,3 +278,18 @@ dynamic_array* sort(dynamic_array* darr, int param1, int param2) {
         printf("%s - - - Invalid Syntax - - - %s\n", RED, RESET);
     }
 }
+
+
+list LIST = {
+    .freeList = freeList,
+    .init = init,
+    .resize = resize,
+    .addString = addString,
+    .addDouble = addDouble,
+    .printList = printList,
+    .concatenation = concatenation,
+    .mapString = mapString,
+    .mapDouble = mapDouble,
+    .where = where,
+    .sort = sort
+};

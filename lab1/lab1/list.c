@@ -113,8 +113,34 @@ void addDouble(dynamic_array* darr, double n) {
     darr->size++;
 }
 
+int isString(char* str) {
+    for (int i = 0; i < strlen(str); i++) {
+        if ((isdigit(str[i]) == 0) && ((str[i]) != '.') && ((str[i]) != '-')) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int isDouble(char* str) {
+    for (int i = 0; i < strlen(str); i++) {
+        if ((isdigit(str[i]) == 0) && ((str[i]) != '.') && ((str[i]) != '-')) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+double getDouble(dynamic_array* darr, int index) {
+    return atof((char*)darr->array[index]);
+}
+
+char* getString(dynamic_array* darr, int index) {
+    return (char*)darr->array[index];
+}
+
 void* get(dynamic_array* darr, int index) {
-    if (index > darr->size){
+    if (index > darr->size) {
         freeList(darr, 3);
     }
     else {
@@ -123,7 +149,13 @@ void* get(dynamic_array* darr, int index) {
             freeList(darr, 4);
         }
         else {
-            return res;
+            if (isDouble(darr->array[index]) == 1) {
+                double result = getDouble(darr, index);
+                return &result;
+            }
+            else {
+                return getString(darr, index);
+            }
         }
     }
 }
@@ -139,24 +171,6 @@ void set(dynamic_array* darr, void* element, int index) {
         else {
             darr->array[index] = element;
         }
-    }
-}
-
-int isString(char* str) {
-    for (int i = 0; i < strlen(str); i++) {
-        if ((isdigit(str[i]) == 0) && ((str[i]) != '.') && ((str[i]) != '-')) {
-            return 1;
-        }
-    }
-    return 0;
-}
-
-int isDouble(char* str) {
-    if (isString(str) == 0) {
-        return 1;
-    }
-    else {
-        return 0;
     }
 }
 

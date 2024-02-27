@@ -29,6 +29,8 @@ dynamic_array* init();
 void resize(dynamic_array*);
 void addString(dynamic_array*, char*);
 void addDouble(dynamic_array*, double);
+void* get(dynamic_array*, int);
+void set(dynamic_array*, void*, int);
 int isString(char*);
 int isDouble(char*);
 void printList(dynamic_array*);

@@ -59,7 +59,6 @@ int main() {
     LIST.addString(darr2, "wasd");
     LIST.addString(darr2, "super");
 
-
     printf("- - - - - - - - - - - - - - - - - - - - - - - - - - \n");
     printf("%slist_1:%s\n", PURPLE, RESET);
     LIST.printList(darr1);

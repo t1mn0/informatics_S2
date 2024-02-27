@@ -1,5 +1,6 @@
 #pragma once
 
+
 typedef struct {
     void** array;
     int size;
@@ -12,6 +13,8 @@ typedef struct {
     void (*resize)(dynamic_array*);
     void (*addString)(dynamic_array*, char*);
     void (*addDouble)(dynamic_array*, double);
+    void* (*get)(dynamic_array*, int);
+    void (*set)(dynamic_array*, void*, int);
     void (*printList)(dynamic_array*);
 
     void (*concatenation)(dynamic_array*, dynamic_array*);

@@ -6,6 +6,9 @@
 #define GREEN   "\033[1;32m"
 #define RED     "\033[1;31m"
 
+#define add(arg1, arg2) _Generic((arg2), double : addDouble, char* : addString)(arg);
+
+
 typedef struct {
     void** array;
     int size;
@@ -18,6 +21,8 @@ typedef struct {
     void (*resize)(dynamic_array*);
     void (*addString)(dynamic_array*, char*);
     void (*addDouble)(dynamic_array*, double);
+    void* (*get)(dynamic_array*, int);
+    void (*set)(dynamic_array*, void*, int);
     void (*printList)(dynamic_array*);
 
     void (*concatenation)(dynamic_array*, dynamic_array*);
@@ -106,6 +111,35 @@ void addDouble(dynamic_array* darr, double n) {
     snprintf(n_pointer, sizeof n_pointer, "%lf", n);
     darr->array[darr->size] = n_pointer;
     darr->size++;
+}
+
+void* get(dynamic_array* darr, int index) {
+    if (index > darr->size){
+        freeList(darr, 3);
+    }
+    else {
+        void* res = darr->array[index];
+        if (res == NULL) {
+            freeList(darr, 4);
+        }
+        else {
+            return res;
+        }
+    }
+}
+
+void set(dynamic_array* darr, void* element, int index) {
+    if (index > darr->size) {
+        freeList(darr, 3);
+    }
+    else {
+        if (darr->array[index] == NULL) {
+            freeList(darr, 4);
+        }
+        else {
+            darr->array[index] = element;
+        }
+    }
 }
 
 int isString(char* str) {
@@ -286,6 +320,8 @@ list LIST = {
     .resize = resize,
     .addString = addString,
     .addDouble = addDouble,
+    .set = set,
+    .get = get,
     .printList = printList,
     .concatenation = concatenation,
     .mapString = mapString,

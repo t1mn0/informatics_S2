@@ -102,24 +102,23 @@ int main() {
     printf("- - - - - - - - - - - - - - - - - - - - - - - - - - \n");
 
     printf("%sConcatenation of list_1 and list_2%s\n", PURPLE, RESET);
-    dynamic_array* darr = concatenation(darr1, darr2);
+    concatenation(darr1, darr2);
 
     printf("- - - - - - - - - - - - - - - - - - - - - - - - - - \n");
     printf("%slist:%s\n", PURPLE, RESET);
-    printList(darr);
+    printList(darr1);
     printf("- - - - - - - - - - - - - - - - - - - - - - - - - - \n");
 
     printf("%sSorting list... TypeSort: 3 / 1%s\n", PURPLE, RESET);
-    darr = sort(darr, 3, 1);
+    sort(darr1, 3, 1);
 
     printf("- - - - - - - - - - - - - - - - - - - - - - - - - - \n");
     printf("%slist:%s\n", PURPLE, RESET);
-    printList(darr);
+    printList(darr1);
     printf("- - - - - - - - - - - - - - - - - - - - - - - - - - \n");
 
     freeList(darr1, 0);
     freeList(darr2, 0);
-    freeList(darr, 0);
 
     return 0;
 }

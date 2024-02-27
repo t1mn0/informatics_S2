@@ -83,7 +83,7 @@ void addDouble(dynamic_array* darr, double n) {
         resize(darr);
     }
     char* n_pointer = (char*)malloc(sizeof(char*));
-    
+
     if (n_pointer == NULL) {
         freeList(darr, 1);
     }
@@ -128,17 +128,10 @@ void printList(dynamic_array* darr) {
 
 
 
-dynamic_array* concatenation(dynamic_array* darr1, dynamic_array* darr2) {
-    dynamic_array* darr = newList();
-    for (int i = 0; i < darr1->size; i++) {
-        addString(darr, darr1->list[i]);
-    }
+void concatenation(dynamic_array* darr1, dynamic_array* darr2) {
     for (int i = 0; i < darr2->size; i++) {
-        addString(darr, darr2->list[i]);
+        addString(darr1, darr2->list[i]);
     }
-    //freeList(darr1, -1);
-    //freeList(darr2, -1);
-    return darr;
 }
 
 void mapString(char* (*func)(char*), dynamic_array* darr) {
@@ -234,13 +227,15 @@ dynamic_array* sort(dynamic_array* darr, int param1, int param2) {
             dynamic_array* sortedDouble = fragmentDouble(darr);
             sortDouble(sortedDouble, param2);
             //free(darr);
-            return concatenation(sortedDouble, fragmentString(darr));
+            concatenation(sortedDouble, fragmentString(darr));
+            return sortedDouble;
         }
         else if (param1 == 1) {
             dynamic_array* sortedString = fragmentString(darr);
             sortString(sortedString, param2);
             //free(darr);
-            return concatenation(sortedString, fragmentDouble(darr));
+            concatenation(sortedString, fragmentDouble(darr));
+            return sortedString;
         }
         else if (param1 == 2) {
             dynamic_array* sortedString = fragmentString(darr);
@@ -248,7 +243,8 @@ dynamic_array* sort(dynamic_array* darr, int param1, int param2) {
             sortString(sortedString, param2);
             sortDouble(sortedDouble, param2);
             //free(darr);
-            return concatenation(sortedString, sortedDouble);
+            concatenation(sortedString, sortedDouble);
+            return sortedString;
         }
         else if (param1 == 3) {
             dynamic_array* sortedString = fragmentString(darr);
@@ -256,7 +252,8 @@ dynamic_array* sort(dynamic_array* darr, int param1, int param2) {
             sortString(sortedString, param2);
             sortDouble(sortedDouble, param2);
             //free(darr);
-            return concatenation(sortedDouble, sortedString);
+            concatenation(sortedDouble, sortedString);
+            return sortedDouble;
         }
         else {
             printf("%s - - - Invalid Syntax - - - %s\n", RED, RESET);

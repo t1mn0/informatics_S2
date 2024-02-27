@@ -15,7 +15,7 @@ int isString(char*);
 int isDouble(char*);
 void printList(dynamic_array*);
 
-dynamic_array* concatenation(dynamic_array*, dynamic_array*);
+void concatenation(dynamic_array*, dynamic_array*);
 void mapString(char* (*func)(char*), dynamic_array*);
 void mapDouble(double (*func)(double), dynamic_array*);
 dynamic_array* where(int (*func)(char*), dynamic_array*);

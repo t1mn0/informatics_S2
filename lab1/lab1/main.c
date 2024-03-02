@@ -54,4 +54,6 @@ int main() {
 	List* Y = list1->FieldInfo.where(list1, WHERE);
 	Y->FieldInfo.printList(Y);
 	printf("- - - - -\n");
+
+	
 }

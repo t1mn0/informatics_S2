@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef List_H
+#define List_H
+
 typedef struct FI FI;
 typedef struct List List;
 
@@ -23,3 +27,5 @@ typedef struct List {
 } List;
 
 List* createList(int size, unsigned int element_size);
+
+#endif List_H

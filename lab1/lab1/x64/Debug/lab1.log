@@ -1,1 +1,20 @@
-﻿  lab1.vcxproj -> C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\x64\Debug\lab1.exe
+﻿  list.c
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(58,8): warning C4047: инициализация: "List *(__cdecl *)(unsigned int)" отличается по уровням косвенного обращения от "char **(__cdecl *)(unsigned int)"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(58,8): warning C4113: "void (__cdecl *)(List *,int)" отличается в списках параметров от "void (__cdecl *)(List *,unsigned int)"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(58,8): warning C4113: "char *(__cdecl *)(List *,unsigned int)" отличается в списках параметров от "void *(__cdecl *)(List *,int)"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(72,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(119,8): warning C4133: инициализация: несовместимые типы - из "float *(__cdecl *)(unsigned int)" в "List *(__cdecl *)(unsigned int)"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(119,8): warning C4113: "void (__cdecl *)(List *,int)" отличается в списках параметров от "void (__cdecl *)(List *,unsigned int)"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(119,8): warning C4113: "float *(__cdecl *)(List *,unsigned int)" отличается в списках параметров от "void *(__cdecl *)(List *,int)"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(133,23): warning C4018: <: несоответствие типов со знаком и без знака
+  main.c
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(9,10): warning C4305: =: усечение из "double" в "float"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(10,11): warning C4305: =: усечение из "double" в "float"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(11,12): warning C4305: =: усечение из "double" в "float"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(12,13): warning C4305: =: усечение из "double" в "float"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(13,15): warning C4305: =: усечение из "double" в "float"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(16,15): warning C4305: =: усечение из "double" в "float"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(17,14): warning C4305: =: усечение из "double" в "float"
+  Создание кода...
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\list.c(34): warning C4715: createFieldInfo: значение возвращается не при всех путях выполнения
+  lab1.vcxproj -> C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\x64\Debug\lab1.exe

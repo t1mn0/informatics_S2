@@ -1,53 +1,22 @@
 #pragma once
+typedef struct FI FI;
+typedef struct List List;
 
+typedef struct FI {
+    List* (*initList)(unsigned int size); // Инициализирует array
+    void (*resize)(List* list, unsigned int delta); // Изменяет size на delta
+    void (*printList)(List* list); // Выводит содержимое array на экран
+    void (*addElement)(List* list, void* valueP); // добавляет элемент в array
+    void (*setElement)(List* list, unsigned int index, void* valueP); // устанавливает значение, на которое ссылается valueP, в array по индексу index 
+    void* (*getElement)(List* list, int index); // получить указатель на элемент array по индексу index
+    void (*concatenation)(List* list_1, List* list_2);
+} FI;
 
-typedef struct {
-    void** array;
+typedef struct List {
+    void* array;
     int size;
-    int capacity;
-} dynamic_array;
+    int element_size;
+    FI FieldInfo;
+} List;
 
-typedef struct {
-    void (*freeList)(dynamic_array*, int);
-    dynamic_array* (*init)();
-    void (*resize)(dynamic_array*);
-    void (*addString)(dynamic_array*, char*);
-    void (*addDouble)(dynamic_array*, double);
-    void* (*get)(dynamic_array*, int);
-    void (*set)(dynamic_array*, void*, int);
-    void (*printList)(dynamic_array*);
-
-    void (*concatenation)(dynamic_array*, dynamic_array*);
-    void (*mapString)(char* (*func)(char*), dynamic_array*);
-    void (*mapDouble)(double (*func)(double), dynamic_array*);
-    dynamic_array* (*where)(int (*func)(char*), dynamic_array*);
-    dynamic_array* (*sort)(dynamic_array*, int, int);
-} list;
-
-/*void freeList(dynamic_array*, int);
-dynamic_array* init();
-void resize(dynamic_array*);
-void addString(dynamic_array*, char*);
-void addDouble(dynamic_array*, double);
-void* get(dynamic_array*, int);
-void set(dynamic_array*, void*, int);
-int isString(char*);
-int isDouble(char*);
-void printList(dynamic_array*);
-
-void concatenation(dynamic_array*, dynamic_array*);
-void mapString(char* (*func)(char*), dynamic_array*);
-void mapDouble(double (*func)(double), dynamic_array*);
-dynamic_array* where(int (*func)(char*), dynamic_array*);
-dynamic_array* sort(dynamic_array*, int param1, int param2);
-dynamic_array* fragmentString(dynamic_array* darr);
-dynamic_array* fragmentDouble(dynamic_array* darr);
-int compareDouble1(void* a, void* b);
-int compareDouble0(void* a, void* b);
-int compareString1(void* a, void* b);
-int compareString0(void* a, void* b);
-void sortString(dynamic_array* darr, int param);
-void sortDouble(dynamic_array* darr, int param);
-*/
-
-list LIST;
+List* createList(int size, unsigned int element_size);

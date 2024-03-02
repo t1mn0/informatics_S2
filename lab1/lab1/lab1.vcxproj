@@ -25,6 +25,7 @@
     <ClInclude Include="StringList.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DialogHandler.c" />
     <ClCompile Include="ErrorHandling.c" />
     <ClCompile Include="FloatList.c" />
     <ClCompile Include="List.c" />

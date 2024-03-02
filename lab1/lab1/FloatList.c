@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "List.h"
+#include "ErrorHandling.h"
 
 
 
@@ -50,6 +51,7 @@ FI createFloatFieldInfo() {
 
 float* initFloatList(unsigned int size) {
     float* array = (float*)malloc(sizeof(float) * size);
+    if (array == NULL) handleErrorCode(MEMORY_ALLOCARTION_ERROR);
     for (int i = 0; i < size; i++) {
         array[i] = 0.0;
     }
@@ -60,6 +62,7 @@ void resizeFloatList(List* list, int delta) {
     int size = list->size;
     list->size = size + delta;
     list->array = (float*)realloc(list->array, sizeof(float) * (size + delta));
+    if (list->array == NULL) handleErrorCode(MEMORY_ALLOCARTION_ERROR);
     if (delta > 0) {
         for (int i = size; i < size + delta; i++) {
             float zero = 0.0;
@@ -80,10 +83,12 @@ void addFloatElement(List* list, float* valueP) {
 }
 
 void setFloatElement(List* list, unsigned int index, float* valueP) {
+    if (index > list->size) handleErrorCode(ARRAY_INDEX_OUT_OF_BOUNDS_ERROR);
     ((float*)(list->array))[index] = *valueP;
 }
 
 float* getFloatElement(List* list, unsigned int index) {
+    if (index > list->size) handleErrorCode(ARRAY_INDEX_OUT_OF_BOUNDS_ERROR);
     return &(((float*)list->array)[index]);
 }
 

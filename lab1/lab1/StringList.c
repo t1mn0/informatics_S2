@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "List.h"
+#include "ErrorHandling.h"
 
 
 
@@ -48,18 +49,21 @@ FI createStringFieldInfo() {
 
 
 char** initStringList(unsigned int size) {
-    char** list = (char**)malloc(sizeof(char*) * size);
+    char** array = (char**)malloc(sizeof(char*) * size);
+    if (array == NULL) handleErrorCode(MEMORY_ALLOCARTION_ERROR);
     for (int i = 0; i < size; i++) {
-        list[i] = " ";
+        array[i] = " ";
     }
-    return list;
+    return array;
 }
 
 void setStringElement(List* list, unsigned int index, char* valueP) {
+    if (index > list->size) handleErrorCode(ARRAY_INDEX_OUT_OF_BOUNDS_ERROR);
     ((char**)(list->array))[index] = valueP;
 }
 
 char* getStringElement(List* list, unsigned int index) {
+    if (index > list->size) handleErrorCode(ARRAY_INDEX_OUT_OF_BOUNDS_ERROR);
     return ((char**)(list->array))[index];
 }
 
@@ -67,6 +71,7 @@ void resizeStringList(List* list, int delta) {
     int size = list->size;
     list->size = size + delta;
     list->array = (char**)realloc(list->array, sizeof(char*) * (size + delta));
+    if (list->array == NULL) handleErrorCode(MEMORY_ALLOCARTION_ERROR);
     if (delta > 0) {
         for (int i = size; i < size + delta; i++) {
             list->FieldInfo.setElement(list, i, " ");
@@ -127,4 +132,3 @@ List* whereString(List* list, char* (*func)(char*)) {
     }
     return new_list;
 }
-

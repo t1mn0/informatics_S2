@@ -5,6 +5,7 @@
 
 #include "FloatList.h"
 #include "StringList.h"
+#include "ErrorHandling.h"
 
 typedef struct FI FI;
 typedef struct List List;
@@ -37,8 +38,9 @@ FI createFieldInfo(List* list) {
     }
 }
 
-List* createList(int size, unsigned int element_size) {
+List* createList(unsigned int size, unsigned int element_size) {
     List* list = (List*)malloc(sizeof(List));
+    if (list == NULL) handleErrorCode(MEMORY_ALLOCARTION_ERROR);
     list->element_size = element_size;
     list->size = size;
     list->FieldInfo = createFieldInfo(list);

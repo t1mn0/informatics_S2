@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ErrorHandling.h" />
     <ClInclude Include="FloatList.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="StringList.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ErrorHandling.c" />
     <ClCompile Include="FloatList.c" />
     <ClCompile Include="List.c" />
     <ClCompile Include="main.c" />

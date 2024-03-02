@@ -24,6 +24,9 @@
     <ClInclude Include="List.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="ErrorHandling.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FloatList.c">
@@ -36,6 +39,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="List.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorHandling.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

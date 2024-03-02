@@ -2,7 +2,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "list.h"
+#include "List.h"
+
+float* MAP(float* aPointer) {
+	float a = *aPointer;
+	a = 0;
+	return &a;
+}
+
+int WHERE(float* aPointer) {
+	float a = *aPointer;
+	if (a <= 2) {
+		return 1;
+	}
+	else return -1;
+}
 
 int main() {
 	float n1, n2, n3, n4, n5, n6, n7, n8, n9, n10;
@@ -33,4 +47,11 @@ int main() {
 	printf("- - - - -\n");
 	list1->FieldInfo.concatenation(list1, list2);
 	list1->FieldInfo.printList(list1);
+	printf("- - - - -\n");
+	list1->FieldInfo.sort(list1, 0);
+	list1->FieldInfo.printList(list1);
+	printf("- - - - -\n");
+	List* Y = list1->FieldInfo.where(list1, WHERE);
+	Y->FieldInfo.printList(Y);
+	printf("- - - - -\n");
 }

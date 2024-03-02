@@ -10,6 +10,9 @@ typedef struct FI {
     void (*setElement)(List* list, unsigned int index, void* valueP); // устанавливает значение, на которое ссылается valueP, в array по индексу index 
     void* (*getElement)(List* list, int index); // получить указатель на элемент array по индексу index
     void (*concatenation)(List* list_1, List* list_2);
+    void (*sort)(List* list, unsigned int param);
+    void (*map)(List* list, void* (*func)(void*));
+    List* (*where)(List* list, void* (*func)(void*));
 } FI;
 
 typedef struct List {

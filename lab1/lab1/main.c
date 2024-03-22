@@ -4,7 +4,9 @@
 #include <string.h>
 #include "List.h"
 #include "DialogHandling.h"
+#include "Test.h"
 
 int main() {
+	testAll();
 	run();
 }

@@ -51,6 +51,7 @@ void sort_list();
 void concatenate();
 void map();
 void where();
+void remove_list();
 
 
 
@@ -61,6 +62,7 @@ void menu() {
 	printf("%75s%s%s", GREEN, "Available Commands:\n", RESET);
 	printf("> %smenu%s\n", GREEN, RESET);
 	printf("> %screate_list%s\n", GREEN, RESET);
+	printf("> %sremove_list%s\n", GREEN, RESET);
 	printf("> %sprint_state%s\n", GREEN, RESET);
 	printf("> %sprint_list%s\n", GREEN, RESET);
 	printf("> %sget_element%s\n", GREEN, RESET);
@@ -119,6 +121,9 @@ void run() {
 		}
 		else if (strcmp(command, "menu\n") == 0) {
 			menu();
+		}
+		else if (strcmp(command, "remove_list\n") == 0) {
+			remove_list();
 		}
 		else {
 			printf("%s", command);
@@ -627,4 +632,23 @@ void where() {
 		}
 	}
 	printf("\n%s", LINE);
+}
+
+
+
+void remove_list() {
+	int i = select_list();
+	if (i < 0) {
+		handleErrorCode(NO_ARRAY);
+	}
+	else {
+		printf("%sDeleting...%s\n", GREEN, RESET);
+		//printf("%d %d %d", lastIndex, );
+		int j = 0;
+		for (j = i; j + 1 < lastIndex; j++) {
+			vars[j] = vars[j + 1];
+		}
+		lastIndex--;
+		printf("%sSuccessfully deleted%s\n", GREEN, RESET);
+	}
 }

@@ -24,6 +24,7 @@
     <ClInclude Include="DialogHandling.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="StringList.h" />
+    <ClInclude Include="Test.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DialogHandling.c" />
@@ -32,6 +33,7 @@
     <ClCompile Include="List.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="StringList.c" />
+    <ClCompile Include="Test.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

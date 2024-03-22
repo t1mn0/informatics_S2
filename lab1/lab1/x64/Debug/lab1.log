@@ -1,6 +1,7 @@
-﻿  DialogHandling.c
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\DialogHandling.c(136,7): warning C4013: isalpha: нет определения; предполагается "extern" с возвратом типа "int"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\DialogHandling.c(594,61): warning C4047: функция: "void *(__cdecl *)(void *)" отличается по уровням косвенного обращения от "float (__cdecl *)(float *)"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\DialogHandling.c(594,61): warning C4022: функция по указателю: несоответствие указателя для фактического параметра 2
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\DialogHandling.c(181): warning C4715: isValidIndex: значение возвращается не при всех путях выполнения
+﻿  Test.c
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\Test.c(18,8): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\Test.c(19,8): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\Test.c(20,8): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\Test.c(21,8): warning C4305: инициализация: усечение из "int" в "float"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\Test.c(22,8): warning C4305: инициализация: усечение из "double" в "float"
   lab1.vcxproj -> C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\x64\Debug\lab1.exe

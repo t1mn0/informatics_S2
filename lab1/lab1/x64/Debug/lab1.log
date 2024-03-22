@@ -1,41 +1,6 @@
-﻿  FloatList.c
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(34,8): warning C4133: инициализация: несовместимые типы - из "float *(__cdecl *)(unsigned int)" в "List *(__cdecl *)(unsigned int)"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(34,8): warning C4113: "void (__cdecl *)(List *,int)" отличается в списках параметров от "void (__cdecl *)(List *,unsigned int)"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(34,8): warning C4113: "float *(__cdecl *)(List *,unsigned int)" отличается в списках параметров от "void *(__cdecl *)(List *,int)"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(34,8): warning C4113: "void (__cdecl *)(List *,float *(__cdecl *)(float *))" отличается в списках параметров от "void (__cdecl *)(List *,void *(__cdecl *)(void *))"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(34,8): warning C4113: "List *(__cdecl *)(List *,float *(__cdecl *)(float *))" отличается в списках параметров от "List *(__cdecl *)(List *,void *(__cdecl *)(void *))"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(53,23): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(111,74): warning C4090: функция: разные квалификаторы "const"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(111,60): warning C4113: "int (__cdecl *)(float *,float *)" отличается в списках параметров от "_CoreCrtNonSecureSearchSortCompareFunction"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(114,74): warning C4090: функция: разные квалификаторы "const"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(114,60): warning C4113: "int (__cdecl *)(float *,float *)" отличается в списках параметров от "_CoreCrtNonSecureSearchSortCompareFunction"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(122,18): warning C4133: функция: несовместимые типы - из "char *" в "float *"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(122,11): warning C4133: =: несовместимые типы - из "float *" в "char *"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\FloatList.c(132,21): warning C4047: ==: "float *" отличается по уровням косвенного обращения от "int"
-  List.c
-  main.c
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(23,10): warning C4305: =: усечение из "double" в "float"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(24,11): warning C4305: =: усечение из "double" в "float"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(25,12): warning C4305: =: усечение из "double" в "float"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(26,13): warning C4305: =: усечение из "double" в "float"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(27,15): warning C4305: =: усечение из "double" в "float"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(30,15): warning C4305: =: усечение из "double" в "float"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(31,14): warning C4305: =: усечение из "double" в "float"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(54,42): warning C4047: функция: "void *(__cdecl *)(void *)" отличается по уровням косвенного обращения от "int (__cdecl *)(float *)"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(54,42): warning C4022: функция по указателю: несоответствие указателя для фактического параметра 2
-  StringList.c
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(33,8): warning C4047: инициализация: "List *(__cdecl *)(unsigned int)" отличается по уровням косвенного обращения от "char **(__cdecl *)(unsigned int)"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(33,8): warning C4113: "void (__cdecl *)(List *,int)" отличается в списках параметров от "void (__cdecl *)(List *,unsigned int)"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(33,8): warning C4113: "char *(__cdecl *)(List *,unsigned int)" отличается в списках параметров от "void *(__cdecl *)(List *,int)"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(33,8): warning C4113: "void (__cdecl *)(List *,char *(__cdecl *)(char *))" отличается в списках параметров от "void (__cdecl *)(List *,void *(__cdecl *)(void *))"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(33,8): warning C4113: "List *(__cdecl *)(List *,char *(__cdecl *)(char *))" отличается в списках параметров от "List *(__cdecl *)(List *,void *(__cdecl *)(void *))"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(52,23): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(98,75): warning C4090: функция: разные квалификаторы "const"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(98,60): warning C4113: "int (__cdecl *)(char *,char *)" отличается в списках параметров от "_CoreCrtNonSecureSearchSortCompareFunction"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(101,75): warning C4090: функция: разные квалификаторы "const"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(101,60): warning C4113: "int (__cdecl *)(char *,char *)" отличается в списках параметров от "_CoreCrtNonSecureSearchSortCompareFunction"
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\StringList.c(118,55): warning C4047: ==: "char *" отличается по уровням косвенного обращения от "int"
-  Создание кода...
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\main.c(10): warning C4172: возвращение адреса локальной или временной переменной : a
-C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\List.c(38): warning C4715: createFieldInfo: значение возвращается не при всех путях выполнения
+﻿  DialogHandling.c
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\DialogHandling.c(136,7): warning C4013: isalpha: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\DialogHandling.c(594,61): warning C4047: функция: "void *(__cdecl *)(void *)" отличается по уровням косвенного обращения от "float (__cdecl *)(float *)"
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\DialogHandling.c(594,61): warning C4022: функция по указателю: несоответствие указателя для фактического параметра 2
+C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\DialogHandling.c(181): warning C4715: isValidIndex: значение возвращается не при всех путях выполнения
   lab1.vcxproj -> C:\Users\User\Documents\University\Coding\S2\informatics\lab1\lab1\x64\Debug\lab1.exe

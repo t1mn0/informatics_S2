@@ -26,8 +26,8 @@ void addFloatElement(List* list, float* valueP);
 void setFloatElement(List* list, unsigned int index, float* valueP);
 float* getFloatElement(List* list, unsigned int index);
 void sortFloat(List* list, unsigned int param);
-void mapFloat(List* list, float* (*func)(float*));
-List* whereFloat(List* list, float* (*func)(float*));
+void mapFloat(List* list, float (*func)(float*));
+List* whereFloat(List* list, int (*func)(float*));
 
 
 
@@ -120,16 +120,14 @@ void sortFloat(List* list, unsigned int param) {
     }
 }
 
-void mapFloat(List* list, float* (*func)(float*)) {
-    char* s;
+void mapFloat(List* list, float (*func)(float*)) {
     for (int i = 0; i < list->size; i++) {
-        s = list->FieldInfo.getElement(list, i);
-        s = func(s);
-        list->FieldInfo.setElement(list, i, s);
+        float z = func(list->FieldInfo.getElement(list, i));
+        list->FieldInfo.setElement(list, i, &z);
     }
 }
 
-List* whereFloat(List* list, float* (*func)(float*)) {
+List* whereFloat(List* list, int (*func)(float*)) {
     List* new_list = createList(1, 4);
     int isFirst = 1;
     for (int i = 0; i < list->size; i++) {

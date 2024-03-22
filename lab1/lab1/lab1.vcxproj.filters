@@ -27,6 +27,9 @@
     <ClInclude Include="ErrorHandling.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="DialogHandling.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FloatList.c">
@@ -44,7 +47,7 @@
     <ClCompile Include="ErrorHandling.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="DialogHandler.c">
+    <ClCompile Include="DialogHandling.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

@@ -21,11 +21,12 @@
   <ItemGroup>
     <ClInclude Include="ErrorHandling.h" />
     <ClInclude Include="FloatList.h" />
+    <ClInclude Include="DialogHandling.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="StringList.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DialogHandler.c" />
+    <ClCompile Include="DialogHandling.c" />
     <ClCompile Include="ErrorHandling.c" />
     <ClCompile Include="FloatList.c" />
     <ClCompile Include="List.c" />

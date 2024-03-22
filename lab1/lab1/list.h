@@ -16,7 +16,7 @@ typedef struct FI {
     void (*concatenation)(List* list_1, List* list_2);
     void (*sort)(List* list, unsigned int param);
     void (*map)(List* list, void* (*func)(void*));
-    List* (*where)(List* list, void* (*func)(void*));
+    List* (*where)(List* list, int (*func)(void*));
 } FI;
 
 typedef struct List {

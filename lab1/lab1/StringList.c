@@ -26,7 +26,7 @@ void setStringElement(List* list, unsigned int index, char* valueP);
 char* getStringElement(List* list, unsigned int index);
 void sortString(List* list, unsigned int param);
 void mapString(List* list, char* (*func)(char*));
-List* whereString(List* list, char* (*func)(char*));
+List* whereString(List* list, int (*func)(char*));
 
 
 
@@ -52,7 +52,7 @@ char** initStringList(unsigned int size) {
     char** array = (char**)malloc(sizeof(char*) * size);
     if (array == NULL) handleErrorCode(MEMORY_ALLOCARTION_ERROR);
     for (int i = 0; i < size; i++) {
-        array[i] = " ";
+        array[i] = "EMPTY!";
     }
     return array;
 }
@@ -90,12 +90,12 @@ void addStringElement(List* list, char* valueP) {
     list->FieldInfo.setElement(list, list->size - 1, valueP);
 }
 
-int compareString_1(char* arg1, char* arg2) {
-    return strcmp(arg1, arg2);
+int compareString_1(const void* a, const void* b) {
+    return strcmp(*(const char**)a, *(const char**)b);
 }
 
-int compareString_2(char* arg1, char* arg2) {
-    return -strcmp(arg1, arg2);
+int compareString_2(const void* a, const void* b) {
+    return -strcmp(*(const char**)a, *(const char**)b);
 }
 
 void sortString(List* list, unsigned int param) {
@@ -111,18 +111,17 @@ void mapString(List* list, char* (*func)(char*)) {
     char* s;
     for (int i = 0; i < list->size; i++) {
         s = list->FieldInfo.getElement(list, i);
-        s = func(s);
-        list->FieldInfo.setElement(list, i, s);
+        list->FieldInfo.setElement(list, i, func(s));
     }
 }
 
-List* whereString(List* list, char* (*func)(char*)) {
+List* whereString(List* list, int (*func)(char*)) {
     List* new_list = createList(1, 8);
     int isFirst = 1;
     for (int i = 0; i < list->size; i++) {
         if (func(list->FieldInfo.getElement(list, i)) == 1) {
             if (isFirst) {
-                new_list->FieldInfo.setElement(new_list, 1, list->FieldInfo.getElement(list, i));
+                new_list->FieldInfo.setElement(new_list, 0, list->FieldInfo.getElement(list, i));
                 isFirst = 0;
             }
             else {
